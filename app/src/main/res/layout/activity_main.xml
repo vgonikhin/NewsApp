@@ -1,18 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/std_margin"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageview_photo"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_null"
+        android:layout_weight = "50"
+        android:contentDescription="@string/image_desc"
+        android:cropToPadding="true"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="@dimen/std_margin"/>
+
     <TextView
+        android:id="@+id/textview_key_info"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_null"
+        android:layout_weight="10"
+        android:layout_marginTop="@dimen/std_margin"
+        android:layout_marginBottom="@dimen/std_margin"
+        android:layout_marginStart="@dimen/desc_margin_start"
+        android:layout_marginEnd="@dimen/std_margin"
+        android:text="@string/key_info"
+        android:textSize="@dimen/std_textsize" />
+
+    <TextView
+        android:id="@+id/textview_description"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_null"
+        android:layout_weight="40"
+        android:text="@string/description"
+        android:textSize="@dimen/std_textsize"
+        android:layout_marginStart="@dimen/desc_margin_start"
+        android:layout_marginEnd="@dimen/std_margin"
+        android:layout_marginTop="@dimen/std_margin"
+        android:layout_marginBottom="@dimen/std_margin" />
+
+    <EditText
+        android:id="@+id/edittext_message"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_null"
+        android:layout_weight="15"
+        android:inputType="text"
+        android:hint="@string/edittext_hint"
+        android:layout_margin="@dimen/std_margin"
+        android:importantForAutofill="no"
+        tools:targetApi="o" />
+
+    <Button
+        android:id="@+id/button_send"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_gravity="end"
+        android:layout_margin="@dimen/std_margin"
+        android:text="@string/button_send_message"
+        android:background="@color/colorBackground"
+        style="@style/Widget.AppCompat.Button.Borderless"/>
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="@dimen/std_margin">
+        <ImageButton
+            android:id="@+id/button_github"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBackground"
+            android:src="@drawable/github_32px"
+            android:layout_marginEnd="@dimen/std_margin"
+            android:contentDescription="@string/cd_github" />
+        <ImageButton
+            android:id="@+id/button_telegram"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/tele_32px"
+            android:layout_marginStart="@dimen/std_margin"
+            android:contentDescription="@string/cd_telegram" />
+
+    </LinearLayout>
+
+</LinearLayout>

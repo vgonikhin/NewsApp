@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">NewsApp</string>
+    <string name="image_desc">mugshot</string>
+    <string name="key_info">Key info</string>
+    <string name="description">Description</string>
+    <string name="edittext_hint">Enter a message</string>
+    <string name="button_send_message">Send message</string>
+    <string name="error_no_email">No email app</string>
+    <string name="cd_github">github</string>
+    <string name="cd_telegram">telegram</string>
 </resources>
