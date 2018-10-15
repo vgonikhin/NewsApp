@@ -8,4 +8,5 @@
     <string name="error_no_email">No email app</string>
     <string name="cd_github">github</string>
     <string name="cd_telegram">telegram</string>
+    <string name="menu_about">About</string>
 </resources>

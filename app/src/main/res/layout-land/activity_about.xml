@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="horizontal"
     android:padding="@dimen/std_margin"
-    tools:context=".MainActivity">
+    tools:context=".AboutActivity">
     <ImageView
         android:id="@+id/imageview_photo"
         android:layout_width="@dimen/size_null"
