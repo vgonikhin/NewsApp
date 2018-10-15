@@ -29,7 +29,7 @@ public class PreviewActivity extends AppCompatActivity {
         buttonPreviewSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                composeEmail("vgonikhin@gmail.com", textViewPreview.getText().toString());
+                composeEmail(getString(R.string.email_address), textViewPreview.getText().toString());
             }
         });
     }
@@ -41,7 +41,7 @@ public class PreviewActivity extends AppCompatActivity {
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
-            Toast.makeText(getApplicationContext(),"No email app!",Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(),getString(R.string.error_no_email),Toast.LENGTH_LONG).show();
         }
     }
 }

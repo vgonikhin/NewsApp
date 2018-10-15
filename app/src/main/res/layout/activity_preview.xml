@@ -10,7 +10,7 @@
         android:id="@+id/textview_preview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"/>
+        android:textSize="@dimen/preview_text_size"/>
 
     <android.support.v7.widget.AppCompatButton
         android:id="@+id/button_preview_send"

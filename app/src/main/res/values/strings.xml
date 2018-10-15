@@ -3,4 +3,7 @@
     <string name="edittext_hint">Type your message here</string>
     <string name="button_preview">Preview</string>
     <string name="button_send">Send</string>
+    <string name="email_address" translatable="false">test@email.com</string>
+    <string name="error_no_email">No email app!</string>
+    <string name="edittext_main_land">god this looks ugly in landscape</string>
 </resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="edittext_hint">Введите Ваше сообщение</string>
+    <string name="button_preview">Предпросмотр</string>
+    <string name="button_send">Отправить</string>
+    <string name="error_no_email">Нет email приложения!</string>
+    <string name="edittext_main_land">боже какой убогий лэйаут</string>
+</resources>
