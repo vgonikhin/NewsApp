@@ -2,6 +2,7 @@ package ru.vgonikhin.aa.newsapp;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -34,10 +35,11 @@ public class PreviewActivity extends AppCompatActivity {
         });
     }
 
-    public void composeEmail(String address, String subject) {
+    public void composeEmail(String address, String text) {
         Intent intent = new Intent(Intent.ACTION_SENDTO);
+        intent.setData(Uri.parse("mailto:"+address));
         intent.putExtra(Intent.EXTRA_EMAIL, address);
-        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, text);
         if (intent.resolveActivity(getPackageManager()) != null) {
             startActivity(intent);
         } else {
