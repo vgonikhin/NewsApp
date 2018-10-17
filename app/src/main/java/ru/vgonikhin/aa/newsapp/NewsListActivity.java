@@ -1,21 +1,26 @@
 package ru.vgonikhin.aa.newsapp;
 
 import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-//import java.util.List;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class NewsListActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
-        //List<NewsItem> news = DataUtils.generateNews();
+        recyclerView = findViewById(R.id.recycler_news);
+        recyclerView.setAdapter(new NewsRecyclerViewAdapter(DataUtils.generateNews(), this));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
     @Override

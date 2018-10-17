@@ -13,4 +13,5 @@
     <string name="mail_subject">NewsApp Feedback</string>
     <string name="github_link">https://github.com/username</string>
     <string name="telegram_link">https://t.me/username</string>
+    <string name="cd_news_picture">news_picture</string>
 </resources>

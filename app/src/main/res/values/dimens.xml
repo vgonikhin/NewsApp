@@ -4,4 +4,5 @@
     <dimen name="size_null">0dp</dimen>
     <dimen name="desc_margin_start">50dp</dimen>
     <dimen name="std_textsize">16sp</dimen>
+    <dimen name="half_margin">4dp</dimen>
 </resources>
