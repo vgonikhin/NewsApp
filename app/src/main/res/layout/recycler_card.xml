@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardview_news_item"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="160dp"
     android:layout_marginTop="@dimen/half_margin"
     card_view:cardCornerRadius="4dp"
     card_view:contentPadding="@dimen/std_margin">
@@ -17,29 +17,36 @@
             android:id="@+id/textview_category"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:maxLines="1"
+            android:layout_marginEnd="@dimen/std_margin"
             card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
+            android:maxLines="1"
+            android:textAllCaps="true"
             tools:text="@tools:sample/cities" />
 
         <TextView
             android:id="@+id/textview_title"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:maxLines="2"
+            android:layout_marginEnd="@dimen/std_margin"
             card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/textview_category"
+            android:maxLines="2"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
             tools:text="@tools:sample/full_names" />
 
         <TextView
             android:id="@+id/textview_preview_text"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:maxLines="4"
+            android:layout_marginEnd="@dimen/std_margin"
             card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
             card_view:layout_constraintTop_toBottomOf="@id/textview_title"
+            android:maxLines="4"
+            android:textColor="@android:color/black"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
@@ -54,6 +61,7 @@
             android:layout_width="134dp"
             android:layout_height="134dp"
             android:contentDescription="@string/cd_news_picture"
+            android:layout_marginStart="@dimen/std_margin"
             card_view:layout_constraintEnd_toEndOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
