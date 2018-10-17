@@ -1,11 +1,13 @@
 package ru.vgonikhin.aa.newsapp;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+
+//import java.util.List;
 
 public class NewsListActivity extends AppCompatActivity {
 
@@ -13,6 +15,7 @@ public class NewsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_list);
+        //List<NewsItem> news = DataUtils.generateNews();
     }
 
     @Override
