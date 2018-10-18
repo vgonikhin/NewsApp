@@ -4,4 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorBackground">#FAFAFA</color>
+    <color name="darwinAwards">#FFFDE7</color>
+    <color name="criminal">#FFEBEE</color>
+    <color name="animals">#E8F5E9</color>
+    <color name="music">#E3F2FD</color>
 </resources>

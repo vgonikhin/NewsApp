@@ -5,9 +5,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 class NewsRecyclerViewHolder extends RecyclerView.ViewHolder {
+
+    CardView cardView;
     TextView textViewCategory;
     TextView textViewTitle;
     TextView textViewPreviewText;
@@ -17,6 +20,7 @@ class NewsRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     NewsRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
+        cardView = itemView.findViewById(R.id.cardview_news_item);
         textViewCategory = itemView.findViewById(R.id.textview_category);
         textViewTitle = itemView.findViewById(R.id.textview_title);
         textViewPreviewText = itemView.findViewById(R.id.textview_preview_text);

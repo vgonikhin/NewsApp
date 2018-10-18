@@ -34,9 +34,23 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
     public void onBindViewHolder(@NonNull NewsRecyclerViewHolder holder, int position) {
         NewsItem newsItem = news.get(position);
         holder.textViewCategory.setText(newsItem.getCategory().getName());
+        switch (newsItem.getCategory().getId()) {
+            case 1:
+                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.darwinAwards));
+                break;
+            case 2:
+                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.criminal));
+                break;
+            case 3:
+                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.animals));
+                break;
+            case 4:
+                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.music));
+                break;
+        }
         holder.textViewTitle.setText(newsItem.getTitle());
         holder.textViewPreviewText.setText(newsItem.getPreviewText());
-        holder.textViewDate.setText(newsItem.getPublishDate().toString());
+        holder.textViewDate.setText(Utils.formatDateTime(context, newsItem.getPublishDate()));
         Glide.with(context).load(newsItem.getImageUrl()).into(holder.imageViewNewsPicture);
     }
 

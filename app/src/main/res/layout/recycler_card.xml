@@ -5,7 +5,6 @@
     android:id="@+id/cardview_news_item"
     android:layout_width="match_parent"
     android:layout_height="160dp"
-    android:layout_marginTop="@dimen/half_margin"
     card_view:cardCornerRadius="4dp"
     card_view:contentPadding="@dimen/std_margin">
 
