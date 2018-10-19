@@ -1,8 +1,9 @@
 package ru.vgonikhin.aa.newsapp;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class NewsItem {
+public class NewsItem implements Serializable {
 
     private final String title;
     private final String imageUrl;
@@ -24,23 +25,23 @@ public class NewsItem {
         return title;
     }
 
-    public String getImageUrl() {
+    String getImageUrl() {
         return imageUrl;
     }
 
-    public Category getCategory() {
+    Category getCategory() {
         return category;
     }
 
-    public Date getPublishDate() {
+    Date getPublishDate() {
         return publishDate;
     }
 
-    public String getPreviewText() {
+    String getPreviewText() {
         return previewText;
     }
 
-    public String getFullText() {
+    String getFullText() {
         return fullText;
     }
 }

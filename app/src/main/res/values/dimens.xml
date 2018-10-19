@@ -5,4 +5,5 @@
     <dimen name="desc_margin_start">50dp</dimen>
     <dimen name="std_textsize">16sp</dimen>
     <dimen name="item_offset">3dp</dimen>
+    <dimen name="tall_toolbar_height">56dp</dimen>
 </resources>

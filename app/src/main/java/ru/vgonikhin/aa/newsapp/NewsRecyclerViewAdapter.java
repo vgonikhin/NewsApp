@@ -48,10 +48,13 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
                 holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.music));
                 break;
         }
+        holder.cardView.setOnClickListener(view -> NewsDetailsActivity.start(context, newsItem));
         holder.textViewTitle.setText(newsItem.getTitle());
         holder.textViewPreviewText.setText(newsItem.getPreviewText());
         holder.textViewDate.setText(Utils.formatDateTime(context, newsItem.getPublishDate()));
         Glide.with(context).load(newsItem.getImageUrl()).into(holder.imageViewNewsPicture);
+
+
     }
 
     @Override
