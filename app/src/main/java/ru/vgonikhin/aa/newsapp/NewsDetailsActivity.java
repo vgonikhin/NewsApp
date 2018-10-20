@@ -7,50 +7,64 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.android.material.appbar.CollapsingToolbarLayout;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class NewsDetailsActivity extends AppCompatActivity {
 
-    public static final String EXTRA_NEWS_ITEM = "extra_news_item";
-    NewsItem newsItem;
+    private static final String EXTRA_NEWS_ITEM = "extra_news_item";
 
-    Toolbar toolbar;
-    CollapsingToolbarLayout collapsingToolbar;
-    TextView textViewDetailsFullText;
-    ImageView imageViewDetailsPicture;
+    private Toolbar toolbar;
+    private TextView textViewDetailsTitle;
+    private TextView textViewDetailsDate;
+    private TextView textViewDetailsFullText;
+    private ImageView imageViewDetailsNewsPicture;
 
     public static void start(@NonNull Context context, @NonNull NewsItem newsItem) {
-        Intent intent = new Intent(context, NewsDetailsActivity.class);
-        intent.putExtra(EXTRA_NEWS_ITEM, newsItem);
-        context.startActivity(intent);
+        context.startActivity(new Intent(context, NewsDetailsActivity.class).putExtra(EXTRA_NEWS_ITEM, newsItem));
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_details);
+
         bindViews();
-        newsItem = (NewsItem) getIntent().getSerializableExtra(EXTRA_NEWS_ITEM);
-        setupToolbar();
-        Glide.with(this).load(newsItem.getImageUrl()).into(imageViewDetailsPicture);
+        final NewsItem newsItem = (NewsItem) getIntent().getSerializableExtra(EXTRA_NEWS_ITEM);
+        setupToolbar(newsItem.getCategory());
+        populateViews(newsItem);
+    }
+
+    private void populateViews(@NonNull NewsItem newsItem) {
+        Glide.with(this).load(newsItem.getImageUrl()).into(imageViewDetailsNewsPicture);
+        textViewDetailsTitle.setText(newsItem.getTitle());
+        textViewDetailsDate.setText(newsItem.getDateString(this));
         textViewDetailsFullText.setText(newsItem.getFullText());
     }
 
     private void bindViews() {
         toolbar = findViewById(R.id.toolbar);
-        collapsingToolbar = findViewById(R.id.collapsing_toolbar);
+        textViewDetailsTitle = findViewById(R.id.textview_details_title);
+        textViewDetailsDate = findViewById(R.id.textview_details_date);
         textViewDetailsFullText = findViewById(R.id.textview_details_fulltext);
-        imageViewDetailsPicture = findViewById(R.id.imageview_details_picture);
+        imageViewDetailsNewsPicture = findViewById(R.id.imageview_details_news_picture);
     }
 
-    private void setupToolbar() {
+    private void setupToolbar(String title) {
         setSupportActionBar(toolbar);
-        collapsingToolbar.setTitle(newsItem.getCategory().getName());
-        collapsingToolbar.setCollapsedTitleTextColor(getResources().getColor(R.color.colorBackground));
-        collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.colorBackground));
+        final ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle(title);
+        }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

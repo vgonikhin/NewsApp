@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="std_margin">8dp</dimen>
+
+    <dimen name="margin_std">8dp</dimen>
+    <dimen name="margin_large">18dp</dimen>
+    <dimen name="margin_desc_start">50dp</dimen>
+    <dimen name="offset_item">3dp</dimen>
+
+    <dimen name="textsize_std">16sp</dimen>
+    <dimen name="textsize_title">20sp</dimen>
+
     <dimen name="size_null">0dp</dimen>
-    <dimen name="desc_margin_start">50dp</dimen>
-    <dimen name="std_textsize">16sp</dimen>
-    <dimen name="item_offset">3dp</dimen>
-    <dimen name="tall_toolbar_height">56dp</dimen>
+    <dimen name="height_max_toolbar">360dp</dimen>
 </resources>

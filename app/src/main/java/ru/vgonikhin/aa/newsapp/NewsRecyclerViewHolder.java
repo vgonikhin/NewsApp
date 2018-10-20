@@ -10,21 +10,21 @@ import androidx.recyclerview.widget.RecyclerView;
 
 class NewsRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-    CardView cardView;
-    TextView textViewCategory;
-    TextView textViewTitle;
-    TextView textViewPreviewText;
-    TextView textViewDate;
-    ImageView imageViewNewsPicture;
+    final CardView cardViewCardNewsItem;
+    final TextView textViewCardCategory;
+    final TextView textViewCardTitle;
+    final TextView textViewCardPreviewText;
+    final TextView textViewCardDate;
+    final ImageView imageViewCardNewsPicture;
 
 
     NewsRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
-        cardView = itemView.findViewById(R.id.cardview_news_item);
-        textViewCategory = itemView.findViewById(R.id.textview_category);
-        textViewTitle = itemView.findViewById(R.id.textview_title);
-        textViewPreviewText = itemView.findViewById(R.id.textview_preview_text);
-        textViewDate = itemView.findViewById(R.id.textview_date);
-        imageViewNewsPicture = itemView.findViewById(R.id.imageview_news_picture);
+        cardViewCardNewsItem = itemView.findViewById(R.id.cardview_card_news_item);
+        textViewCardCategory = itemView.findViewById(R.id.textview_card_category);
+        textViewCardTitle = itemView.findViewById(R.id.textview_card_title);
+        textViewCardPreviewText = itemView.findViewById(R.id.textview_card_preview_text);
+        textViewCardDate = itemView.findViewById(R.id.textview_card_date);
+        imageViewCardNewsPicture = itemView.findViewById(R.id.imageview_card_news_picture);
     }
 }

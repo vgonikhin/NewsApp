@@ -6,9 +6,9 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class NewsRecyclerVHDecoration extends RecyclerView.ItemDecoration {
+class NewsRecyclerVHDecoration extends RecyclerView.ItemDecoration {
 
-    private int offset;
+    private final int offset;
 
     NewsRecyclerVHDecoration(int offset) {
         this.offset = offset;

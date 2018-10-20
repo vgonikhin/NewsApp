@@ -1,18 +1,25 @@
 package ru.vgonikhin.aa.newsapp;
 
+import android.content.Context;
+import android.text.format.DateUtils;
+
 import java.io.Serializable;
 import java.util.Date;
 
-public class NewsItem implements Serializable {
+import static android.text.format.DateUtils.DAY_IN_MILLIS;
+import static android.text.format.DateUtils.FORMAT_ABBREV_RELATIVE;
+import static android.text.format.DateUtils.HOUR_IN_MILLIS;
+
+class NewsItem implements Serializable {
 
     private final String title;
     private final String imageUrl;
-    private final Category category;
+    private final String category;
     private final Date publishDate;
     private final String previewText;
     private final String fullText;
 
-    NewsItem(String title, String imageUrl, Category category, Date publishDate, String previewText, String fullText) {
+    NewsItem(String title, String imageUrl, String category, Date publishDate, String previewText, String fullText) {
         this.title = title;
         this.imageUrl = imageUrl;
         this.category = category;
@@ -29,12 +36,8 @@ public class NewsItem implements Serializable {
         return imageUrl;
     }
 
-    Category getCategory() {
+    String getCategory() {
         return category;
-    }
-
-    Date getPublishDate() {
-        return publishDate;
     }
 
     String getPreviewText() {
@@ -43,5 +46,15 @@ public class NewsItem implements Serializable {
 
     String getFullText() {
         return fullText;
+    }
+
+    CharSequence getDateString(Context context) {
+        return DateUtils.getRelativeDateTimeString(
+                context,
+                publishDate.getTime(),
+                HOUR_IN_MILLIS,
+                5 * DAY_IN_MILLIS,
+                FORMAT_ABBREV_RELATIVE
+        );
     }
 }

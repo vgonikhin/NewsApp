@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewHolder> {
+class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerViewHolder> {
 
     private final List<NewsItem> news;
     private final Context context;
@@ -32,29 +32,27 @@ public class NewsRecyclerViewAdapter extends RecyclerView.Adapter<NewsRecyclerVi
 
     @Override
     public void onBindViewHolder(@NonNull NewsRecyclerViewHolder holder, int position) {
-        NewsItem newsItem = news.get(position);
-        holder.textViewCategory.setText(newsItem.getCategory().getName());
-        switch (newsItem.getCategory().getId()) {
-            case 1:
-                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.darwinAwards));
+        final NewsItem newsItem = news.get(position);
+        holder.textViewCardCategory.setText(newsItem.getCategory());
+        switch (newsItem.getCategory()) {
+            case DataUtils.DARWIN_AWARDS:
+                holder.cardViewCardNewsItem.setCardBackgroundColor(context.getResources().getColor(R.color.darwinAwards));
                 break;
-            case 2:
-                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.criminal));
+            case DataUtils.CRIMINAL:
+                holder.cardViewCardNewsItem.setCardBackgroundColor(context.getResources().getColor(R.color.criminal));
                 break;
-            case 3:
-                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.animals));
+            case DataUtils.ANIMALS:
+                holder.cardViewCardNewsItem.setCardBackgroundColor(context.getResources().getColor(R.color.animals));
                 break;
-            case 4:
-                holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.music));
+            case DataUtils.MUSIC:
+                holder.cardViewCardNewsItem.setCardBackgroundColor(context.getResources().getColor(R.color.music));
                 break;
         }
-        holder.cardView.setOnClickListener(view -> NewsDetailsActivity.start(context, newsItem));
-        holder.textViewTitle.setText(newsItem.getTitle());
-        holder.textViewPreviewText.setText(newsItem.getPreviewText());
-        holder.textViewDate.setText(Utils.formatDateTime(context, newsItem.getPublishDate()));
-        Glide.with(context).load(newsItem.getImageUrl()).into(holder.imageViewNewsPicture);
-
-
+        holder.cardViewCardNewsItem.setOnClickListener(view -> NewsDetailsActivity.start(context, newsItem));
+        holder.textViewCardTitle.setText(newsItem.getTitle());
+        holder.textViewCardPreviewText.setText(newsItem.getPreviewText());
+        holder.textViewCardDate.setText(newsItem.getDateString(context));
+        Glide.with(context).load(newsItem.getImageUrl()).into(holder.imageViewCardNewsPicture);
     }
 
     @Override

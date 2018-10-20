@@ -4,17 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="@dimen/std_margin"
+    android:padding="@dimen/margin_std"
     tools:context=".AboutActivity">
     <ImageView
         android:id="@+id/imageview_photo"
         android:layout_width="@dimen/size_null"
         android:layout_height="match_parent"
         android:layout_weight="40"
-        android:contentDescription="@string/image_desc"
+        android:layout_marginBottom="@dimen/margin_std"
         android:cropToPadding="true"
         android:src="@mipmap/ic_launcher"
-        android:layout_marginBottom="@dimen/std_margin"/>
+        android:contentDescription="@string/cd_about_image" />
 
     <LinearLayout
         android:layout_width="@dimen/size_null"
@@ -26,23 +26,23 @@
             android:id="@+id/textview_key_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/std_margin"
-            android:layout_marginBottom="@dimen/std_margin"
-            android:layout_marginStart="@dimen/desc_margin_start"
-            android:layout_marginEnd="@dimen/std_margin"
+            android:layout_marginStart="@dimen/margin_desc_start"
+            android:layout_marginTop="@dimen/margin_std"
+            android:layout_marginEnd="@dimen/margin_std"
+            android:layout_marginBottom="@dimen/margin_std"
             android:text="@string/key_info"
-            android:textSize="@dimen/std_textsize" />
+            android:textSize="@dimen/textsize_std" />
 
         <TextView
             android:id="@+id/textview_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/description"
-            android:textSize="@dimen/std_textsize"
-            android:layout_marginStart="@dimen/desc_margin_start"
-            android:layout_marginEnd="@dimen/std_margin"
-            android:layout_marginTop="@dimen/std_margin"
-            android:layout_marginBottom="@dimen/std_margin" />
+            android:layout_marginStart="@dimen/margin_desc_start"
+            android:layout_marginTop="@dimen/margin_std"
+            android:layout_marginEnd="@dimen/margin_std"
+            android:layout_marginBottom="@dimen/margin_std"
+            android:textSize="@dimen/textsize_std" />
 
         <EditText
             android:id="@+id/edittext_message"
@@ -50,7 +50,7 @@
             android:layout_height="wrap_content"
             android:inputType="text"
             android:hint="@string/edittext_hint"
-            android:layout_margin="@dimen/std_margin"
+            android:layout_margin="@dimen/margin_std"
             android:importantForAutofill="no"
             tools:targetApi="o" />
 
@@ -59,9 +59,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:layout_marginTop="@dimen/std_margin"
-            android:layout_marginBottom="@dimen/std_margin"
-            android:layout_marginEnd="@dimen/std_margin"
+            android:layout_marginTop="@dimen/margin_std"
+            android:layout_marginEnd="@dimen/margin_std"
+            android:layout_marginBottom="@dimen/margin_std"
             android:text="@string/button_send_message"
             android:background="@color/colorBackground"
             style="@style/Widget.AppCompat.Button.Borderless"/>
@@ -72,14 +72,14 @@
             android:orientation="horizontal"
             android:gravity="center"
             android:layout_gravity="bottom"
-            android:layout_margin="@dimen/std_margin">
+            android:layout_margin="@dimen/margin_std">
             <ImageButton
                 android:id="@+id/button_github"
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:background="@color/colorBackground"
                 android:src="@drawable/github_32px"
-                android:layout_marginEnd="@dimen/std_margin"
+                android:layout_marginEnd="@dimen/margin_std"
                 android:contentDescription="@string/cd_github" />
 
             <ImageButton
@@ -87,7 +87,7 @@
                 android:layout_width="32dp"
                 android:layout_height="32dp"
                 android:src="@drawable/tele_32px"
-                android:layout_marginStart="@dimen/std_margin"
+                android:layout_marginStart="@dimen/margin_std"
                 android:contentDescription="@string/cd_telegram" />
         </LinearLayout>
 

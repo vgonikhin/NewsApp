@@ -2,65 +2,65 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cardview_news_item"
+    android:id="@+id/cardview_card_news_item"
     android:layout_width="match_parent"
     android:layout_height="160dp"
     card_view:cardCornerRadius="4dp"
-    card_view:contentPadding="@dimen/std_margin">
+    card_view:contentPadding="@dimen/margin_std">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textview_category"
+            android:id="@+id/textview_card_category"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/std_margin"
-            card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
+            android:layout_marginEnd="@dimen/margin_std"
+            card_view:layout_constraintEnd_toStartOf="@id/imageview_card_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
             android:maxLines="1"
             android:textAllCaps="true"
             tools:text="@tools:sample/cities" />
 
         <TextView
-            android:id="@+id/textview_title"
+            android:id="@+id/textview_card_title"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/std_margin"
-            card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
+            android:layout_marginEnd="@dimen/margin_std"
+            card_view:layout_constraintEnd_toStartOf="@id/imageview_card_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/textview_category"
+            card_view:layout_constraintTop_toBottomOf="@id/textview_card_category"
             android:maxLines="2"
             android:textColor="@android:color/black"
             android:textStyle="bold"
             tools:text="@tools:sample/full_names" />
 
         <TextView
-            android:id="@+id/textview_preview_text"
+            android:id="@+id/textview_card_preview_text"
             android:layout_width="@dimen/size_null"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/std_margin"
-            card_view:layout_constraintEnd_toStartOf="@id/imageview_news_picture"
+            android:layout_marginEnd="@dimen/margin_std"
+            card_view:layout_constraintEnd_toStartOf="@id/imageview_card_news_picture"
             card_view:layout_constraintStart_toStartOf="parent"
-            card_view:layout_constraintTop_toBottomOf="@id/textview_title"
+            card_view:layout_constraintTop_toBottomOf="@id/textview_card_title"
             android:maxLines="4"
             android:textColor="@android:color/black"
             tools:text="@tools:sample/lorem/random" />
 
         <TextView
-            android:id="@+id/textview_date"
+            android:id="@+id/textview_card_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             card_view:layout_constraintBottom_toBottomOf="parent"
             tools:text="@tools:sample/date/ddmmyy" />
 
         <ImageView
-            android:id="@+id/imageview_news_picture"
+            android:id="@+id/imageview_card_news_picture"
             android:layout_width="134dp"
             android:layout_height="134dp"
             android:contentDescription="@string/cd_news_picture"
-            android:layout_marginStart="@dimen/std_margin"
+            android:layout_marginStart="@dimen/margin_std"
             card_view:layout_constraintEnd_toEndOf="parent"
             tools:srcCompat="@tools:sample/backgrounds/scenic" />
     </androidx.constraintlayout.widget.ConstraintLayout>
