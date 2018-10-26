@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Thread threadLeft;
+    private Thread threadRight;
+
     private static final Object object = new Object();
     private static boolean threadSwitch;
 
@@ -17,11 +20,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        new Thread(new LeftLeg()).start();
-        new Thread(new RightLeg()).start();
+        threadLeft = new Thread(new LeftLeg());
+        threadLeft.start();
+        threadRight = new Thread(new RightLeg());
+        threadRight.start();
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (threadLeft != null) {
+            threadLeft.interrupt();
+            threadLeft = null;
+        }
+        if (threadRight != null) {
+            threadRight.interrupt();
+            threadRight = null;
+        }
+    }
+
     private class LeftLeg implements Runnable {
         @Override
         public void run() {
@@ -33,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
                         threadSwitch = true;
                     }
                 }
+                if (Thread.interrupted()) return;
             }
         }
     }
 
-    @SuppressWarnings("InfiniteLoopStatement")
     private class RightLeg implements Runnable {
         @Override
         public void run() {
@@ -49,8 +66,8 @@ public class MainActivity extends AppCompatActivity {
                         threadSwitch = false;
                     }
                 }
+                if (Thread.interrupted()) return;
             }
         }
     }
-
 }
