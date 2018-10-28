@@ -2,11 +2,12 @@ package ru.vgonikhin.aa.newsapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Thread threadLeft;
-    private Thread threadRight;
+    private TextView textView;
 
     private static final Object object = new Object();
     private static boolean threadSwitch;
@@ -15,42 +16,32 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        threadLeft = new Thread(new LeftLeg());
-        threadLeft.start();
-        threadRight = new Thread(new RightLeg());
-        threadRight.start();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if (threadLeft != null) {
-            threadLeft.interrupt();
-            threadLeft = null;
-        }
-        if (threadRight != null) {
-            threadRight.interrupt();
-            threadRight = null;
-        }
+        textView = findViewById(R.id.text_view);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                System.out.println("click");
+                int i = 0;
+                while (i < 5) {
+                    System.out.println("loop");
+                    textView.post(new LeftLeg());
+                    textView.post(new RightLeg());
+                    i++;
+                }
+            }
+        });
     }
 
     private class LeftLeg implements Runnable {
         @Override
         public void run() {
-            int leftCounter = 1;
-            while (true) {
-                if (!threadSwitch) {
-                    synchronized (object) {
-                        System.out.println("Left step" + (leftCounter++));
-                        threadSwitch = true;
-                    }
+            System.out.println("Left");
+            if (!threadSwitch) {
+                synchronized (object) {
+                    textView.setText("Left");
+                    System.out.println(Thread.currentThread().getName() + "\nLeft step");
+                    threadSwitch = true;
                 }
-                if (Thread.interrupted()) return;
             }
         }
     }
@@ -58,15 +49,13 @@ public class MainActivity extends AppCompatActivity {
     private class RightLeg implements Runnable {
         @Override
         public void run() {
-            int rightCounter = 1;
-            while (true) {
-                if (threadSwitch) {
-                    synchronized (object) {
-                        System.out.println("Right step" + (rightCounter++));
-                        threadSwitch = false;
-                    }
+            System.out.println("Right");
+            if (threadSwitch) {
+                synchronized (object) {
+                    System.out.println(Thread.currentThread().getName() + "\nRight step");
+                    textView.setText("Right");
+                    threadSwitch = false;
                 }
-                if (Thread.interrupted()) return;
             }
         }
     }
