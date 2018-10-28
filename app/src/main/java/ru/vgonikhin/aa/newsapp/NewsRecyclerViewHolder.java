@@ -2,6 +2,7 @@ package ru.vgonikhin.aa.newsapp;
 
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 class NewsRecyclerViewHolder extends RecyclerView.ViewHolder {
 
     final CardView cardViewCardNewsItem;
+    final ProgressBar progressBarCard;
     final TextView textViewCardCategory;
     final TextView textViewCardTitle;
     final TextView textViewCardPreviewText;
@@ -21,6 +23,7 @@ class NewsRecyclerViewHolder extends RecyclerView.ViewHolder {
     NewsRecyclerViewHolder(@NonNull View itemView) {
         super(itemView);
         cardViewCardNewsItem = itemView.findViewById(R.id.cardview_card_news_item);
+        progressBarCard = itemView.findViewById(R.id.progressbar_card);
         textViewCardCategory = itemView.findViewById(R.id.textview_card_category);
         textViewCardTitle = itemView.findViewById(R.id.textview_card_title);
         textViewCardPreviewText = itemView.findViewById(R.id.textview_card_preview_text);

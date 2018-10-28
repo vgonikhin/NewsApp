@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import io.reactivex.Single;
+
 class DataUtils {
 
     static final String DARWIN_AWARDS = "Darwin Awards";
@@ -12,10 +14,10 @@ class DataUtils {
     static final String ANIMALS = "Animals";
     static final String MUSIC = "Music";
 
-    static List<NewsItem> generateNews() {
+    static List<Single<NewsItem>> generateNews() {
 
-        List<NewsItem> news = new ArrayList<>();
-        news.add(new NewsItem(
+        List<Single<NewsItem>> news = new ArrayList<>();
+        news.add(Single.just(new NewsItem(
                 "Tourist filmed sitting on 5m-long crocodile",
                 "https://e3.365dm.com/18/09/736x414/skynews-crocodile-australia_4433218.jpg",
                 DARWIN_AWARDS,
@@ -33,8 +35,8 @@ class DataUtils {
                         + "But a man out of shot told him to get back and give a thumbs-up, so he approached the animal for a second"
                         + " time, sat down again, turned towards the camera, smiled and put this thumb in the air.\n\n"
                         + "Mr Jensen admitted he took life in his hands by sitting on a live crocodile for the first time."
-        ));
-        news.add(new NewsItem(
+        )));
+        news.add(Single.just(new NewsItem(
                 "Police warn daredevil cliff jumpers who are 'risking their lives for likes'",
                 "https://e3.365dm.com/18/09/2048x1152/skynews-cliff-jumping-greg-milam_4433647.jpg",
                 CRIMINAL,
@@ -51,8 +53,8 @@ class DataUtils {
                         + "A social media search for locations like Eaton Canyon, Hermit Falls and Malibu Creek Rock Pool reveal "
                         + "dozens of risky selfie videos. Two men were recently rescued after being injured while being filmed at "
                         + "Hermit Falls."
-        ));
-        news.add(new NewsItem(
+        )));
+        news.add(Single.just(new NewsItem(
                 "Bear saved after getting his head stuck in milk can",
                 "https://e3.365dm.com/18/09/2048x1152/skynews-bear-minnesota_4419111.jpg",
                 ANIMALS,
@@ -68,8 +70,8 @@ class DataUtils {
                         + "Two hours later, firefighters used the \"Jaws of Life\" - a tool which is normally used to extricate car "
                         + "accident victims - and a spreader to pry the can off.\n\n"
                         + "After being released, the seemingly healthy bear ran off into the woods."
-        ));
-        news.add(new NewsItem(
+        )));
+        news.add(Single.just(new NewsItem(
                 "Nearly $18m of cocaine seized in donated boxes of bananas",
                 "https://e3.365dm.com/18/09/2048x1152/skynews-texas-bananas-drugs_4430760.jpg",
                 CRIMINAL,
@@ -88,8 +90,8 @@ class DataUtils {
                         + "powdery substance.\n\n"
                         + "\"They immediately notified port authorities and awaited their instruction.\""
                         + "US Customs arrived and tested the substance, which confirmed the powder was cocaine."
-        ));
-        news.add(new NewsItem(
+        )));
+        news.add(Single.just(new NewsItem(
                 "US government hacker jailed after losing secrets",
                 "https://e3.365dm.com/17/09/736x414/d55722dc4eb37f6959d2e047c14710d586aab99f90aa1e4acfd9f992125294f5_4107038.jpg",
                 CRIMINAL,
@@ -112,8 +114,8 @@ class DataUtils {
                         + "An internal investigation at the cyber security company into the incident prompted the company to suggest"
                         + " that an NSA employee had actually been hacked when he downloaded pirate software and disabled "
                         + "Kaspersky's anti-virus."
-        ));
-        news.add(new NewsItem(
+        )));
+        news.add(Single.just(new NewsItem(
                 "Wet Wet Wet announce Liberty X star Kevin Simm as new frontman",
                 "https://e3.365dm.com/18/09/2048x1152/skynews-wet-wet-wet-kevin-simm_4433314.jpg",
                 MUSIC,
@@ -131,7 +133,7 @@ class DataUtils {
                         + "excites me.\n\n"
                         + "\"When I first started gigging around the pubs and clubs up North, two songs that were always in my set "
                         + "were Goodnight Girl and Love Is All Around.\""
-        ));
+        )));
 
         return news;
     }
